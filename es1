@@ -27,7 +27,7 @@
         let khw;
         let str;
         let costomolt;
-        let calcolo iva;
+        let calcoloiva;
         let totale;
         let tot=0;
         function Inserisci() {
