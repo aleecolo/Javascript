@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolletta</title>
+</head>
+<body>
+    <table border = "1">
+        <tbody id="tbody">
+            <tr><td>Codice cliente</td><td><input type="text" id="InpCod"></tr>
+            <tr><td>Kw/h consumati</td><td><input type="text" id="InpKhw"></tr>
+            <tr><td>Costo Kw/h</td><td>0.03</td></tr>
+            <tr><td>Iva</td><td>22</td></tr>
+            <tr><td>Canone</td><td>20</td></tr>
+            <tr><td> <button onclick="Inserisci()">Inserisci</button></td><td> <button onclick="Mostra()">Mostra</button></td></tr>
+    </table>
+    <table border = "1" >
+        <tbody id="tbody2">
+    </table>
+    <script>
+        const costo=0.03;
+        const iva=22;
+        const canone=20;
+        let codice;
+        let khw;
+        let str;
+        let costomolt;
+        let calcolo iva;
+        let totale;
+        let tot=0;
+        function Inserisci() {
+            codice=Number(document.getElementById("InpCod").value); 
+            if(isNaN(codice) || codice<0)
+                alert("Inserire un numero positivo");
+            khw=Number(document.getElementById("InpKhw").value);
+            if(isNaN(khw) || khw<0)
+                alert("Inserire un numero positivo");
+        }
+            costomolt=khw*costo;
+            calcoloiva=costomolt*22;
+            totale=calcoloiva+costomolt+canone;
+            tot+=totale;
+            str += "<tr>" "<td>" + codice + "</td>" + "<td>" + khw+"*0.03="+costomolt + "</td>" + "<td>" + canone + "</td>" + "<td>"+ costomolt+"*22%="+calcoloiva + "</td>" + "<td>" + totale + "</td>"+"</tr>"
+            
+        
+        function Mostra(){
+            let tr = document.createElement("tr");
+            let td;
+            let tbody = document.getElementById("tbody2");
+            td = document.createElement("td");
+            td.innerText = "Codice";
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.innerText = "Consumo*Costo";
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.innerText = "Canone";
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.innerText = "Iva";
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.innerText = "Totale";
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.innerText = codice;
+            tr.appendChild(td);
+            tbody.appendChild("tr");
+
+            document.getElementById("tbody").innerHTML+=str;
+
+        }
+        
+
+    </script>
+</body>
+</html>
