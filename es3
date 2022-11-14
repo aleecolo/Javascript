@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imgs</title>
+</head>
+<body>
+    <style>
+        img {
+          max-width: 200px;
+        }
+        table {
+          font-size:2em;
+          text-align: center;
+        }
+      </style>
+    <table>
+        <tbody id="tbody">
+    </table>
+    <script>
+        let numerogatti=0;
+        let gattifila=0;
+        let cont=0;
+        let n=0;
+        do{
+        numerogatti=Number(prompt("Inserire numero gatti"));
+        }while(isNaN(numerogatti));
+        do{
+        gattifila=Number(prompt("Inserire numero gatti per fila"));
+        }while(isNaN(gattifila));
+        let tr = document.createElement("tr");
+        let tbody = document.getElementById("tbody");
+        do{ //ripete finchè ci son gatti
+
+        for(let i=0;i<gattifila;i++){ //inserisce i gatti nella riga
+            let td=document.createElement("td");
+            let img=document.createElement("img");
+            img.src="https://www.pexels.com/photo/brown-cat-with-green-eyes-617278/"; //tentativo di visualizzazione dell'immagine
+            td.appendChild(img);
+            tr.appendChild("td");
+            cont +=1;
+            if(cont>numerogatti)
+                break;
+        }
+
+        if((numerogatti-cont)!=0) //metto i numeri in caso di mancanza di gatti in una riga
+        n=numerogatti-cont;
+        for(let i=0;i<n;i++){
+            let td=document.createElement("td");
+            td.innerText = i;
+            tr.appendChild("td")
+        }
+        tbody.appendChild("tr"); //attacco la riga alla tabella e
+        }while(numerogatti<cont)
+        
+        
+    </script>
+</body>
+</html>
