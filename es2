@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maggiore della somma dei precedenti </title>
+</head>
+<body>
+    <table border="1">
+        <tbody id="tbody">
+            <tr><td>Cont</td><td>Num</td><td>Somma Prec</td><td>Max Somma</td></tr>
+    </table>
+    <script>
+        let tr = document.createElement("tr");
+        let td;
+        let tbody = document.getElementById("tbody");
+        let cont=0;
+        let num=0;
+        let somma=0;
+        do{
+            somma=somma+num;
+                num=Number(prompt("Inserisci un numero"));
+            if(isNaN(num))
+                alert("Inserisci un numero");
+            else{
+                cont=cont + 1;
+
+                td = document.createElement("td");
+                td.innerText = cont;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerText = num;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerText = somma;
+                tr.appendChild(td);
+
+                if(num>somma){
+                    td = document.createElement("td");
+                    td.innerText = "sì";
+                    tr.appendChild(td);
+                }
+                else{
+                    td = document.createElement("td");
+                    td.innerText = "no";
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+                tr = document.createElement("tr");
+            }
+        }while(num!=0);
+
+
+
+
+        </script>
+</body>
+</html>
